@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint './**/*.js'",
     "lint:fix": "eslint --fix './**/*.js'",
-    "docker": "docker-compose up db"
+    "docker": "sudo docker-compose up db"
   },
   "husky": {
     "hooks": {

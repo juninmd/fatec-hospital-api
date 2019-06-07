@@ -1,9 +1,6 @@
 const mysql = require('./baseDao');
 
 module.exports = {
-  login: async ({ email, senha }) => {
-    return (await mysql.executeString(`SELECT * FROM hospital WHERE email = '${email}' and senha = '${senha}'`)).content;
-  },
   getById: async (id) => {
     return (await mysql.executeString(`SELECT * FROM hospital WHERE codigo = ${id}`)).content;
   },
