@@ -1,9 +1,9 @@
-const usuariosDao = require('../dao/usuariosDao');
+const hospitaisDao = require('../dao/hospitaisDao');
 
 module.exports = (app) => {
   app.post('/login', async (req, res, next) => {
     try {
-      const [response] = await usuariosDao.login(req.body);
+      const [response] = await hospitaisDao.login(req.body);
       delete response.senha;
       return res.send(response).status(200);
     } catch (error) {
@@ -11,45 +11,45 @@ module.exports = (app) => {
     }
   });
 
-  app.get('/usuarios', async (req, res, next) => {
+  app.get('/hospitais', async (req, res, next) => {
     try {
-      const response = await usuariosDao.getAll();
+      const response = await hospitaisDao.getAll();
       return res.send(response).status(200);
     } catch (error) {
       next(error);
     }
   });
 
-  app.get('/usuarios/:id', async (req, res, next) => {
+  app.get('/hospitais/:id', async (req, res, next) => {
     try {
-      const response = await usuariosDao.getById(req.params.id);
+      const response = await hospitaisDao.getById(req.params.id);
       return res.send(response).status(200);
     } catch (error) {
       next(error);
     }
   });
 
-  app.post('/usuarios/', async (req, res, next) => {
+  app.post('/hospitais/', async (req, res, next) => {
     try {
-      await usuariosDao.insert(req.body);
+      await hospitaisDao.insert(req.body);
       return res.send({}).status(201);
     } catch (error) {
       next(error);
     }
   });
 
-  app.put('/usuarios/:id', async (req, res, next) => {
+  app.put('/hospitais/:id', async (req, res, next) => {
     try {
-      await usuariosDao.update(req.body);
+      await hospitaisDao.update(req.body);
       return res.send({}).status(200);
     } catch (error) {
       next(error);
     }
   });
 
-  app.delete('/usuarios/:id', async (req, res, next) => {
+  app.delete('/hospitais/:id', async (req, res, next) => {
     try {
-      await usuariosDao.delete(req.params.id);
+      await hospitaisDao.delete(req.params.id);
       return res.send({}).status(204);
     } catch (error) {
       next(error);
