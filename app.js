@@ -20,7 +20,7 @@ app.use(bodyParser.json({ limit: '500mb' }));
 app.use(bodyParser.urlencoded({ limit: '500mb', extended: true }));
 
 consign({
-  verbose: false
+  verbose: false,
 }).include('controllers').into(app);
 
 app.listen(config.api.port, () => {

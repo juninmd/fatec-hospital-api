@@ -1,7 +1,6 @@
 const medicosDao = require('../dao/medicosDao');
 
 module.exports = (app) => {
-
   app.get('/medicos', async (req, res, next) => {
     try {
       const response = await medicosDao.getAll();

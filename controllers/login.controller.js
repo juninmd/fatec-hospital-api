@@ -1,7 +1,6 @@
 const loginDao = require('../dao/loginDao');
 
 module.exports = (app) => {
-
   app.post('/login', async (req, res, next) => {
     try {
       const [response] = await loginDao.login(req.body);
@@ -11,5 +10,4 @@ module.exports = (app) => {
       next(error);
     }
   });
-
-}
+};

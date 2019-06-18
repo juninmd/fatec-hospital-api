@@ -1,7 +1,6 @@
 const hospitaisDao = require('../dao/hospitaisDao');
 
 module.exports = (app) => {
-
   app.get('/hospitais', async (req, res, next) => {
     try {
       const response = await hospitaisDao.getAll();
